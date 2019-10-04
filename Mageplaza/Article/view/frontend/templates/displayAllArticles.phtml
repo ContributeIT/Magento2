@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @var \Mageplaza\Article\Block\DisplayAllArticles $block
+ */
+
+echo $block->sayHello();
+
+?>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .post-id {
+        width: 2%
+    }
+
+    .post-name {
+        width: 30%
+    }
+
+</style>
+
+<table>
+    <tr>
+        <th class="article_id">Id</th>
+        <th class="title">Name</th>
+        <th>Detail</th>
+    </tr>
+     <?php
+     foreach ($block->loadAllArticles() as $post) {//getPostCollection xuat cac block cua table duoi dang array - du lieu di tu tren xuong duoi
+         ;?>
+        <tr>
+            <td> <?= $post['article_id'] ?> </td>
+            <td> <?= $post['title'] ?></td>
+            <td> <a href = "http://localhost/magento/article/index/articledetail?id=<?php echo $post['article_id'];?>">Article Detail</a></td>
+         </tr>
+   <?php } ?>
+
+
+</table>
+
