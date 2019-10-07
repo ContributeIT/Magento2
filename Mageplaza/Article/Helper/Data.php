@@ -23,5 +23,4 @@ class Data extends AbstractHelper
 
         return $this->getConfigValue(self::XML_PATH_HELLOWORLD .'general/'. $code, $storeId);
     }
-
 }

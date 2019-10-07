@@ -4,8 +4,6 @@
  * @var \Mageplaza\Article\Block\DisplayAllArticles $block
  */
 
-echo $block->sayHello();
-
 ?>
 
 <style>
@@ -36,22 +34,31 @@ echo $block->sayHello();
 
 </style>
 
-<table>
-    <tr>
-        <th class="article_id">Id</th>
-        <th class="title">Name</th>
-        <th>Detail</th>
-    </tr>
-     <?php
-     foreach ($block->loadAllArticles() as $post) {//getPostCollection xuat cac block cua table duoi dang array - du lieu di tu tren xuong duoi
-         ;?>
+<div>
+    <table>
         <tr>
-            <td> <?= $post['article_id'] ?> </td>
-            <td> <?= $post['title'] ?></td>
-            <td> <a href = "http://localhost/magento/article/index/articledetail?id=<?php echo $post['article_id'];?>">Article Detail</a></td>
-         </tr>
-   <?php } ?>
+            <th class="article_id">Id</th>
+            <th class="title">Name</th>
+            <th>Detail</th>
+        </tr>
+        <?php
+        foreach ($block->loadAllArticles() as $post) {//getPostCollection xuat cac block cua table duoi dang array - du lieu di tu tren xuong duoi
+            ; ?>
+            <tr>
+                <td> <?= $post['article_id'] ?> </td>
+                <td> <?= $post['title'] ?></td>
+                <td>
+                    <a href="<?= $block->getBaseUrl() ?>article/index/detail?id=<?= $post['article_id']; ?>">
+                        <button>
+                            Show detail
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
 
-
-</table>
-
+    <?php if ($block->getPagerHtml()): ?>
+        <?php echo $block->getPagerHtml(); ?>
+    <?php endif; ?>
+</div>

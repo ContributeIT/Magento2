@@ -7,13 +7,14 @@ use \Mageplaza\Article\Helper\Data;
 use \Magento\Framework\App\Action\Action;
 use \Magento\Framework\App\Action\Context;
 use \Magento\Framework\View\Result\PageFactory;
-use \Mageplaza\Article\Model\PostFactory;
+//use \Mageplaza\Article\Model\PostFactory;
 use \Mageplaza\Article\Model\ResourceModel\Post\CollectionFactory;
 
-class ArticleDetail extends \Magento\Framework\App\Action\Action
+class Detail extends Action
 {
     protected $_pageFactory;
     protected $_helperData;
+
     public function __construct(Context $context, PageFactory $pageFactory, Data $helperData)
     {
         $this->_pageFactory = $pageFactory;

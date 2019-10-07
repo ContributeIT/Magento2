@@ -45,6 +45,7 @@
         <th class="updated_at">Update at</th>
     </tr>
     <?php
+
     foreach ($block->loadSpecificArticle() as $id) {  //getPostCollection xuat cac block cua table duoi dang array - du lieu di tu tren xuong duoi?>
         <tr>
             <td> <?= $id['article_id'] ?> </td>
@@ -56,5 +57,12 @@
         </tr>
     <?php } ?>
 </table>
+
+<a href = "<?= $block->getBaseUrl()?>article/index/displayallarticles">
+    <button>
+        Back to list
+    </button>
+</a>
+
 
 
